@@ -15,7 +15,7 @@
 
 <div class="scroll-progress"></div>
 
-<!-- ── Nav ── -->
+<!-- Nav -->
 <nav class="top-nav">
   <a href="index.html" class="nav-brand">
     <span class="nav-brand-dot"></span>
@@ -43,7 +43,7 @@
 
 <div class="layout">
 
-  <!-- ── Sidebar ── -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-avatar-wrap">
       <div class="sidebar-avatar">
@@ -79,7 +79,7 @@
     </div>
   </aside>
 
-  <!-- ── Content ── -->
+  <!-- Content -->
   <main class="content">
 
     <!-- Hero -->
@@ -103,12 +103,12 @@
 
         <div class="hero-ctas reveal reveal-delay-3">
           <a href="projects.html" class="btn btn-primary">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8,21 12,17 16,21"/></svg>
             View Projects
           </a>
           <a href="resume.html" class="btn btn-secondary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Download CV
+            View Resume
           </a>
           <a href="mailto:israel.e.pro@gmail.com" class="btn btn-secondary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
@@ -119,7 +119,7 @@
       </div>
     </section>
 
-    <!-- Animated Stats -->
+    <!-- Stats Row -->
     <div class="stats-row reveal">
       <div class="stat-item">
         <span class="stat-value count-up" data-target="1M+">0</span>
@@ -189,14 +189,127 @@
 
       <div class="projects-grid">
 
-        <!-- Card 1: FinTech Platform -->
+        <!-- Card 1 -->
         <div class="project-card">
           <div class="project-card-top project-top-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:36px;height:36px">
               <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
               <line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/>
-              <line x1="9" y1="19" x2="15" y2="19"/>
             </svg>
           </div>
           <div class="project-card-body">
-            <div class="project-tag">Cloud 
+            <div class="project-tag">Cloud Infrastructure</div>
+            <div class="project-name">FinTech Payment Platform</div>
+            <div class="project-desc">Event-driven microservices handling 1M+ daily transactions across distributed .NET 8 services with Kafka message bus and zero-downtime deployments.</div>
+            <div class="project-metrics">
+              <div class="metric metric-blue"><span class="metric-value">1M+</span><span class="metric-label">Daily TXs</span></div>
+              <div class="metric metric-green"><span class="metric-value">99.9%</span><span class="metric-label">Uptime</span></div>
+              <div class="metric metric-orange"><span class="metric-value">0</span><span class="metric-label">Downtime</span></div>
+            </div>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">.NET 8</span>
+              <span class="project-tech-tag">Kafka</span>
+              <span class="project-tech-tag">Kubernetes</span>
+              <span class="project-tech-tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card">
+          <div class="project-card-top project-top-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:36px;height:36px">
+              <rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/>
+              <rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/>
+            </svg>
+          </div>
+          <div class="project-card-body">
+            <div class="project-tag">API Platform</div>
+            <div class="project-name">Enterprise API Gateway</div>
+            <div class="project-desc">Unified API management layer with IBM API Connect, rate limiting, OAuth2 authentication, and real-time monitoring for 50+ internal microservices.</div>
+            <div class="project-metrics">
+              <div class="metric metric-blue"><span class="metric-value">50+</span><span class="metric-label">APIs</span></div>
+              <div class="metric metric-green"><span class="metric-value">90%</span><span class="metric-label">Audit Reduction</span></div>
+              <div class="metric metric-orange"><span class="metric-value">2x</span><span class="metric-label">Throughput</span></div>
+            </div>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">IBM API Connect</span>
+              <span class="project-tech-tag">OAuth2</span>
+              <span class="project-tech-tag">OpenAPI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card">
+          <div class="project-card-top project-top-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:36px;height:36px">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="project-card-body">
+            <div class="project-tag">Observability</div>
+            <div class="project-name">Production Monitoring Platform</div>
+            <div class="project-desc">End-to-end observability stack with distributed tracing, real-time alerting, and custom dashboards reducing MTTR by 70% across 20+ production services.</div>
+            <div class="project-metrics">
+              <div class="metric metric-blue"><span class="metric-value">70%</span><span class="metric-label">Faster MTTR</span></div>
+              <div class="metric metric-green"><span class="metric-value">20+</span><span class="metric-label">Services</span></div>
+              <div class="metric metric-orange"><span class="metric-value">24/7</span><span class="metric-label">Coverage</span></div>
+            </div>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">Grafana</span>
+              <span class="project-tech-tag">Prometheus</span>
+              <span class="project-tech-tag">Jaeger</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="project-card">
+          <div class="project-card-top project-top-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:36px;height:36px">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="project-card-body">
+            <div class="project-tag">CI/CD</div>
+            <div class="project-name">Deployment Automation Pipeline</div>
+            <div class="project-desc">Zero-downtime CI/CD pipeline with blue/green deployments, automated rollbacks, and infrastructure-as-code reducing release cycles from weeks to hours.</div>
+            <div class="project-metrics">
+              <div class="metric metric-blue"><span class="metric-value">10x</span><span class="metric-label">Release Speed</span></div>
+              <div class="metric metric-green"><span class="metric-value">0</span><span class="metric-label">Downtime</span></div>
+              <div class="metric metric-orange"><span class="metric-value">95%</span><span class="metric-label">Coverage</span></div>
+            </div>
+            <div class="project-tech-tags">
+              <span class="project-tech-tag">Terraform</span>
+              <span class="project-tech-tag">GitHub Actions</span>
+              <span class="project-tech-tag">Docker</span>
+              <span class="project-tech-tag">K8s</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- CTA Footer -->
+    <div class="reveal" style="text-align:center;padding:40px 0 56px;">
+      <h2 style="font-size:1.6rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:12px;">Let's build something remarkable.</h2>
+      <p style="color:var(--text-secondary);margin-bottom:28px;font-size:0.95rem;">Open to Engineering Lead, Staff Engineer, and Principal roles.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="mailto:israel.e.pro@gmail.com" class="btn btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          Let's Talk
+        </a>
+        <a href="resume.html" class="btn btn-secondary">View Full Resume</a>
+        <a href="https://linkedin.com/in/eitan-pro" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

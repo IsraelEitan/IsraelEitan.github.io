@@ -1,7 +1,5 @@
 /* ================================================================
    EITAN PROSHIZKI — main.js v2.0
-   Interactions: dark mode, scroll reveal, counters, skill bars,
-   typewriter, scroll progress, mobile menu, filter
    ================================================================ */
 
 (function () {
@@ -54,9 +52,7 @@
       nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', nav.classList.contains('open'));
     });
-    // Close on link click
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-    // Close on outside click
     document.addEventListener('click', e => {
       if (!btn.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('open');
     });
@@ -73,4 +69,105 @@
     const increment = numTarget / steps;
     let current = 0;
     const timer = setInterval(() => {
-      current = Math.min(curr
+      current = Math.min(current + increment, numTarget);
+      el.textContent = (Number.isInteger(numTarget) ? Math.round(current) : current.toFixed(1)) + suffix;
+      if (current >= numTarget) clearInterval(timer);
+    }, step);
+  }
+
+  /* ── Typewriter ── */
+  function initTypewriter() {
+    const el = document.getElementById('typewriter');
+    if (!el) return;
+    const phrases = el.getAttribute('data-phrases').split('|');
+    let pi = 0, ci = 0, deleting = false;
+    function tick() {
+      const phrase = phrases[pi];
+      el.textContent = deleting ? phrase.slice(0, ci--) : phrase.slice(0, ci++);
+      if (!deleting && ci > phrase.length) { deleting = true; setTimeout(tick, 1600); return; }
+      if (deleting && ci < 0) { deleting = false; pi = (pi + 1) % phrases.length; ci = 0; setTimeout(tick, 400); return; }
+      setTimeout(tick, deleting ? 40 : 70);
+    }
+    tick();
+  }
+
+  /* ── Current Year ── */
+  function setYear() {
+    document.querySelectorAll('.current-year').forEach(el => {
+      el.textContent = new Date().getFullYear();
+    });
+  }
+
+  /* ── Years Experience (dynamic) ── */
+  function setYearsExp() {
+    const els = document.querySelectorAll('.years-exp');
+    const years = new Date().getFullYear() - 2014;
+    els.forEach(el => { el.textContent = years + '+'; });
+  }
+
+  /* ── IntersectionObserver for counters and reveals ── */
+  function initObservers() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.classList.contains('count-up')) {
+          animateCounter(el);
+        }
+        if (el.classList.contains('skill-bar-fill')) {
+          el.style.width = el.getAttribute('data-w') || el.style.width;
+        }
+        if (el.classList.contains('reveal')) {
+          el.classList.add('revealed');
+        }
+        io.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.count-up, .skill-bar-fill, .reveal').forEach(el => io.observe(el));
+  }
+
+  /* ── Skill Bars (resume page) ── */
+  function initSkillBars() {
+    document.querySelectorAll('.skill-bar-fill').forEach(el => {
+      const w = el.style.width;
+      el.setAttribute('data-w', w);
+      el.style.width = '0';
+    });
+  }
+
+  /* ── Project Filter ── */
+  function initFilter() {
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card[data-cat]');
+    if (!btns.length) return;
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  /* ── Init on DOMContentLoaded ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    updateThemeBtn();
+    setActiveNav();
+    setYear();
+    setYearsExp();
+    initScrollProgress();
+    initMobileMenu();
+    initTypewriter();
+    initSkillBars();
+    initObservers();
+    initFilter();
+
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+  });
+
+})();
