@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume – Eitan Proshizki</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-dot"></span>Eitan Proshizki</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resume.html">Resume</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="stats.html">Stats</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle">🌙</button>
+  <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="resume.html">Resume</a>
+  <a href="projects.html">Projects</a><a href="about.html">About</a><a href="stats.html">Stats</a>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-avatar-wrap">
+      <div class="sidebar-avatar"><img src="avatar.jpg" alt="Eitan Proshizki" /></div>
+      <div class="sidebar-status"></div>
+    </div>
+    <div><div class="sidebar-name">Eitan Proshizki</div><div class="sidebar-role">Engineering Team Lead</div><div class="sidebar-location">📍 Ramat Gan, Israel</div></div>
+    <a href="mailto:israel.e.pro@gmail.com" class="sidebar-email">israel.e.pro@gmail.com</a>
+    <div class="sidebar-divider"></div>
+    <div><div class="sidebar-label">About</div><p class="sidebar-bio">Hands-on Engineering Leader with 12 years building high-scale distributed systems, cloud-native platforms, and event-driven architectures that handle real load. 40–60% hands-on code even in leadership.</p></div>
+    <a href="about.html" class="sidebar-cta">About Me</a>
+    <div class="social-links">
+      <a href="https://github.com/IsraelEitan" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://linkedin.com/in/eitan-pro" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="mailto:israel.e.pro@gmail.com" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg></a>
+    </div>
+    <div class="sidebar-footer">israel.e.pro@gmail.com · © <span class="current-year">2026</span> Eitan Proshizki</div>
+  </aside>
+
+  <main class="content">
+    <h1 class="page-title reveal">Resume</h1>
+
+    <div class="resume-topbar reveal">
+      <nav class="resume-nav">
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#leadership">Leadership</a>
+      </nav>
+      <button class="btn btn-secondary" onclick="window.print()" style="font-size:0.8rem;padding:8px 16px;">🖨 Save as PDF</button>
+    </div>
+
+    <!-- ── Education ── -->
+    <section class="resume-section reveal" id="education">
+      <h2 class="resume-section-title">Education</h2>
+      <div class="edu-item">
+        <div>
+          <div class="edu-degree">B.Sc. Computer Science</div>
+          <div class="edu-school">MTA Academic College, Tel Aviv-Yaffo</div>
+          <div class="edu-detail">Software Engineering · Algorithms · Distributed Systems · Data Structures</div>
+        </div>
+        <div class="edu-date">2009 – 2012</div>
+      </div>
+    </section>
+
+    <!-- ── Skill Proficiency Bars ── -->
+    <section class="resume-section reveal" id="skills-visual">
+      <h2 class="resume-section-title">Proficiency Overview</h2>
+      <div class="skills-visual">
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Backend Architecture &amp; Microservices</span><span class="skill-bar-pct">95%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Engineering Leadership &amp; Delivery</span><span class="skill-bar-pct">92%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">FinTech Systems &amp; Compliance</span><span class="skill-bar-pct">90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Cloud &amp; Infrastructure (AWS/K8s)</span><span class="skill-bar-pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">Event-Driven Architecture &amp; Kafka</span><span class="skill-bar-pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-bar-name">DevOps, CI/CD &amp; Observability</span><span class="skill-bar-pct">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Experience Timeline ── -->
+    <section class="resume-section reveal" id="experience">
+      <h2 class="resume-section-title">Experience</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">Matrix / Financial Institution</div><div class="timeline-role">Team Lead &amp; Principal Engineer</div></div>
+              <div class="timeline-date">2024 – Present</div>
+            </div>
+            <div class="timeline-tech">.NET 8 · Node.js/TypeScript · Docker · Kubernetes · AWS (EKS/ECS/IAM/CloudWatch) · Kafka · IBM API Connect · OpenAPI/SwaggerHub · CI/CD · Terraform</div>
+            <ul class="timeline-bullets">
+              <li>Led multiple backend teams with matrix leadership across DevOps and QA — owning delivery, sprint planning, and cross-team coordination.</li>
+              <li>Drove engineering for secure, scalable platforms supporting dozens of microservices and <strong>1M+ daily banking operations</strong>.</li>
+              <li>Designed and built the <strong>Composer API Architecture</strong> — reduced integration complexity 70%, scaled throughput to 1M+ req/day across 30+ services.</li>
+              <li>Implemented <strong>Kafka event-driven architecture</strong> for real-time data streaming and cross-service observability.</li>
+              <li>Owned cloud runtime on Kubernetes/AWS: production hardening, rollout strategy, environment configuration.</li>
+              <li>Created reusable scaffolding tools — developer onboarding: days → hours, delivery speed: +70%.</li>
+              <li>Accountable for production KPIs: availability, latency, error rate, on-call readiness, release quality gates.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">D&amp;B Trusted Partners / Captain Credit</div><div class="timeline-role">Team Lead &amp; Senior Developer</div></div>
+              <div class="timeline-date">2021 – 2024</div>
+            </div>
+            <div class="timeline-tech">.NET Core/Framework · ASP.NET Core · REST &amp; SOAP APIs · SQL Server · High-Availability Systems</div>
+            <ul class="timeline-bullets">
+              <li>Led backend engineers through sprint planning, code reviews, and delivery execution.</li>
+              <li>Collaborated directly with the <strong>Bank of Israel</strong> on compliance features — reduced audit gaps by <strong>90%</strong>.</li>
+              <li>Designed high-throughput SOAP/REST APIs for large-scale credit inquiry systems at high availability.</li>
+              <li>SQL query optimization: key endpoints from <strong>3,000ms → 200ms</strong>.</li>
+              <li>Mentored developers in secure coding, performance optimization, and system design.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">Proprep Ltd</div><div class="timeline-role">Software Development Manager</div></div>
+              <div class="timeline-date">2020 – 2021</div>
+            </div>
+            <div class="timeline-tech">.NET Core · MVC · REST APIs · PostgreSQL · EdTech</div>
+            <ul class="timeline-bullets">
+              <li>Led cross-functional delivery for an online learning platform serving <strong>10,000+ university students</strong>.</li>
+              <li>Managed product and engineering teams, balancing roadmap with platform stability.</li>
+              <li>Mentored junior developers to improve code quality and engineering ownership.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">NCR Corporation</div><div class="timeline-role">Scrum Master &amp; Senior Developer</div></div>
+              <div class="timeline-date">2019 – 2020</div>
+            </div>
+            <div class="timeline-tech">Agile/Scrum · .NET Framework · REST APIs · JWT Security · SQL Server · POS Systems</div>
+            <ul class="timeline-bullets">
+              <li>Deployed POS software supporting <strong>$2M+ in daily retail transactions</strong>.</li>
+              <li>Led Agile process improvements — sprint velocity: <strong>+45%</strong>.</li>
+              <li>Introduced offline-first architecture for full transaction reliability in unstable environments.</li>
+              <li>Reduced code complexity 35% via SOLID principles and systematic refactoring.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">Hashavim H.P.S</div><div class="timeline-role">Full-Stack Software Engineer</div></div>
+              <div class="timeline-date">2016 – 2019</div>
+            </div>
+            <div class="timeline-tech">.NET Framework · MVC · Angular 2+ · jQuery UI · SQL Server · SignalR</div>
+            <ul class="timeline-bullets">
+              <li>Built scalable web applications supporting <strong>500+ concurrent users</strong>.</li>
+              <li>Real-time dashboards via SignalR — data latency: 30s → <strong>real-time</strong>.</li>
+              <li>Designed multi-tenant architecture; test automation suite covering <strong>80%+ of business logic</strong>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">Bizportal</div><div class="timeline-role">Software Engineer</div></div>
+              <div class="timeline-date">2015 – 2016</div>
+            </div>
+            <div class="timeline-tech">.NET Framework · WinForms · Multithreading · SQL Server</div>
+            <ul class="timeline-bullets"><li>Enhanced responsive multi-threaded UI with focus on optimal performance.</li></ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div><div class="timeline-company">Experda</div><div class="timeline-role">VB.NET Developer</div></div>
+              <div class="timeline-date">2012 – 2015</div>
+            </div>
+            <div class="timeline-tech">.NET Framework · WinForms · SQL Server</div>
+            <ul class="timeline-bullets"><li>Backend development of SQL Server management tool — real-time responsiveness and data workflows.</li></ul>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+    </section>
+
+    <!-- ── Skills by Category ── -->
+    <section class="resume-section reveal" id="skills">
+      <h2 class="resume-section-title">Skills</h2>
+      <div class="skills-cats">
+        <div class="skill-cat">
+          <div class="skill-cat-title">Leadership &amp; Delivery</div>
+          <div class="skill-tags"><span class="skill-tag">Team Leadership</span><span class="skill-tag">Mentorship</span><span class="skill-tag">Agile Delivery</span><span class="skill-tag">Hiring</span><span class="skill-tag">Sprint Ownership</span><span class="skill-tag">1-on-1s</span></div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Architecture &amp; Design</div>
+          <div class="skill-tags"><span class="skill-tag">Microservices</span><span class="skill-tag">Event-Driven</span><span class="skill-tag">DDD</span><span class="skill-tag">SOLID</span><span class="skill-tag">Clean Architecture</span><span class="skill-tag">API Design</span></div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Cloud &amp; Infrastructure</div>
+          <div class="skill-tags"><span class="skill-tag">AWS EKS/ECS/IAM</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">Docker</span><span class="skill-tag">Terraform</span><span class="skill-tag">CI/CD</span><span class="skill-tag">CloudWatch</span></div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Data &amp; Messaging</div>
+          <div class="skill-tags"><span class="skill-tag">Kafka</span><span class="skill-tag">RabbitMQ</span><span class="skill-tag">SQL Server</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Event Sourcing</span></div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Tech Stack</div>
+          <div class="skill-tags"><span class="skill-tag">.NET 8 / C#</span><span class="skill-tag">Node.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">REST APIs</span><span class="skill-tag">OpenAPI</span><span class="skill-tag">IBM API Connect</span></div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-title">Engineering Practices</div>
+          <div class="skill-tags"><span class="skill-tag">TDD/BDD</span><span class="skill-tag">Code Reviews</span><span class="skill-tag">ADRs</span><span class="skill-tag">DevOps</span><span class="skill-tag">Observability</span><span class="skill-tag">AI-assisted Dev</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Leadership Scope ── -->
+    <section class="resume-section reveal" id="leadership">
+      <h2 class="resume-section-title">Leadership Scope</h2>
+      <div class="scope-grid">
+        <div><div class="scope-label">Team Size</div><div class="scope-value">5–12 engineers<br/>Matrix leadership across DevOps &amp; 

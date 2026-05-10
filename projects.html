@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects – Eitan Proshizki</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="main.js" defer></script>
+</head>
+<body>
+<div class="scroll-progress"></div>
+
+<nav class="top-nav">
+  <a href="index.html" class="nav-brand"><span class="nav-brand-dot"></span>Eitan Proshizki</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="resume.html">Resume</a></li>
+    <li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="stats.html">Stats</a></li>
+  </ul>
+  <button class="theme-toggle" id="theme-toggle">🌙</button>
+  <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a><a href="resume.html">Resume</a>
+  <a href="projects.html">Projects</a><a href="about.html">About</a><a href="stats.html">Stats</a>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-avatar-wrap"><div class="sidebar-avatar"><img src="avatar.jpg" alt="Eitan Proshizki" /></div><div class="sidebar-status"></div></div>
+    <div><div class="sidebar-name">Eitan Proshizki</div><div class="sidebar-role">Engineering Team Lead</div><div class="sidebar-location">📍 Ramat Gan, Israel</div></div>
+    <a href="mailto:israel.e.pro@gmail.com" class="sidebar-email">israel.e.pro@gmail.com</a>
+    <div class="sidebar-divider"></div>
+    <div><div class="sidebar-label">About</div><p class="sidebar-bio">Hands-on Engineering Leader with 12 years building high-scale distributed systems, cloud-native platforms, and event-driven architectures that handle real load. 40–60% hands-on code even in leadership.</p></div>
+    <a href="resume.html" class="sidebar-cta">View Resume</a>
+    <div class="social-links">
+      <a href="https://github.com/IsraelEitan" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://linkedin.com/in/eitan-pro" target="_blank" rel="noopener" class="social-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+    <div class="sidebar-footer">israel.e.pro@gmail.com · © <span class="current-year">2026</span> Eitan Proshizki</div>
+  </aside>
+
+  <main class="content">
+    <h1 class="page-title reveal">Projects</h1>
+    <p class="page-subtitle reveal">Production work &amp; open-source builds</p>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="professional">Professional</button>
+      <button class="filter-btn" data-filter="opensource">Open Source</button>
+    </div>
+
+    <div class="projects-grid reveal">
+
+      <!-- 1 -->
+      <div class="project-card" data-category="professional">
+        <div class="project-card-top project-top-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="9" y1="19" x2="15" y2="19"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">Cloud Migration · FinTech · Microservices</div>
+          <div class="project-name">FinTech Platform Modernization</div>
+          <div class="project-desc">Led end-to-end modernisation of a legacy monolith into modular cloud-native microservices on .NET 8, Docker, Kubernetes, and AWS — doubling scalability. Platform now supports 1M+ daily banking operations with zero-downtime deployments and full distributed observability.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">1M+</span><span class="metric-label">Txn/Day</span></div>
+            <div class="metric metric-green"><span class="metric-value">2×</span><span class="metric-label">Scalability</span></div>
+            <div class="metric metric-orange"><span class="metric-value">0</span><span class="metric-label">Downtime</span></div>
+          </div>
+          <div class="project-tech-tags"><span class="project-tech-tag">.NET 8</span><span class="project-tech-tag">Kubernetes</span><span class="project-tech-tag">AWS</span><span class="project-tech-tag">Docker</span><span class="project-tech-tag">Terraform</span></div>
+          <a href="resume.html#experience" class="project-link">View in resume →</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="project-card" data-category="professional">
+        <div class="project-card-top project-top-purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">API Design · Architecture · Integration</div>
+          <div class="project-name">Composer API Architecture</div>
+          <div class="project-desc">Designed unified API orchestration layer across 30+ distributed services using OpenAPI/SwaggerHub and IBM API Connect — reducing integration complexity by 70% and scaling throughput to 1M+ requests/day. Established contract-first development as team standard.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">−70%</span><span class="metric-label">Complexity</span></div>
+            <div class="metric metric-green"><span class="metric-value">30+</span><span class="metric-label">Services</span></div>
+            <div class="metric metric-orange"><span class="metric-value">1M+</span><span class="metric-label">Req/Day</span></div>
+          </div>
+          <div class="project-tech-tags"><span class="project-tech-tag">OpenAPI</span><span class="project-tech-tag">IBM API Connect</span><span class="project-tech-tag">SwaggerHub</span><span class="project-tech-tag">REST</span></div>
+          <a href="resume.html#experience" class="project-link">View in resume →</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="project-card" data-category="professional">
+        <div class="project-card-top project-top-orange">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">Event-Driven · Streaming · Kafka</div>
+          <div class="project-name">Kafka Event-Driven Platform</div>
+          <div class="project-desc">Designed and implemented a Kafka-based event-driven architecture for real-time data streaming and cross-service observability — decoupling critical financial systems via API Gateway → SQS → EventBridge → consumers pipeline, eliminating data loss under load.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">Real-time</span><span class="metric-label">Latency</span></div>
+            <div class="metric metric-green"><span class="metric-value">0</span><span class="metric-label">Data Loss</span></div>
+            <div class="metric metric-orange"><span class="metric-value">Full</span><span class="metric-label">Observability</span></div>
+          </div>
+          <div class="project-tech-tags"><span class="project-tech-tag">Kafka</span><span class="project-tech-tag">AWS SQS</span><span class="project-tech-tag">EventBridge</span><span class="project-tech-tag">AWS Lambda</span></div>
+          <a href="resume.html#experience" class="project-link">View in resume →</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="project-card" data-category="professional">
+        <div class="project-card-top project-top-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">Compliance · FinTech · Auditability</div>
+          <div class="project-name">Bank of Israel Compliance Layer</div>
+          <div class="project-desc">Collaborated directly with the Bank of Israel on compliance-grade auditability features, idempotency controls, and regulatory capabilities for large-scale credit inquiry systems — reducing audit gaps by 90%.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">−90%</span><span class="metric-label">Audit Gaps</span></div>
+            <div class="metric metric-green"><span class="metric-value">HA</span><span class="metric-label">Availability</span></div>
+            <div class="metric metric-orange"><span class="metric-value">Full</span><span class="metric-label">Audit Trail</span></div>
+          </div>
+          <div class="project-tech-tags"><span class="project-tech-tag">.NET Core</span><span class="project-tech-tag">SQL Server</span><span class="project-tech-tag">SOAP/REST</span><span class="project-tech-tag">Idempotency</span></div>
+          <a href="resume.html#experience" class="project-link">View in resume →</a>
+        </div>
+      </div>
+
+      <!-- 5: LMS (GitHub) -->
+      <div class="project-card" data-category="opensource">
+        <div class="project-card-top project-top-cyan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">Open Source · C# · Full-Stack</div>
+          <div class="project-name">LMS Dashboard</div>
+          <div class="project-desc">A Learning Management System built in C# — full-stack dashboard for managing courses, students, and content delivery. Demonstrates clean architecture patterns, REST API design, and data management in a real-world educational platform context.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">C#</span><span class="metric-label">Language</span></div>
+            <div class="metric metric-green"><span class="metric-value">2025</span><span class="metric-label">Latest</span></div>
+            <div class="metric metric-orange"><span class="metric-value">Full</span><span class="metric-label">Stack</span></div>
+          </div>
+          <div class="project-tech-tags"><span class="project-tech-tag">C#</span><span class="project-tech-tag">.NET</span><span class="project-tech-tag">REST API</span><span class="project-tech-tag">Clean Arch</span></div>
+          <a href="https://github.com/IsraelEitan/lms-dashboard" target="_blank" rel="noopener" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <!-- 6: Invoice (GitHub) -->
+      <div class="project-card" data-category="opensource">
+        <div class="project-card-top project-top-red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tag">Open Source · C# · Web App</div>
+          <div class="project-name">Customer Invoice Web App</div>
+          <div class="project-desc">Full-stack customer invoice management system — allows viewing, creating, and editing all invoices. Built in C# with a focus on clean CRUD patterns, REST API design, and a responsive web UI for real-world business workflows.</div>
+          <div class="project-metrics">
+            <div class="metric metric-blue"><span class="metric-value">CRUD</span><span class="metric-label">Operations</span></div>
+            <div class="metri
