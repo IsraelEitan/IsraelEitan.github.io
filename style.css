@@ -161,13 +161,26 @@ button { font-family:var(--font); cursor:pointer; }
   display:flex; flex-direction:column; gap:18px;
 }
 
-/* Avatar — large rounded square */
-.sidebar-avatar-wrap { position:relative; width:100%; }
+/* Avatar — circle, professional ring (no harsh border) */
+.sidebar-avatar-wrap {
+  position:relative; width:100%;
+  display:flex; flex-direction:column; align-items:center;
+}
 .sidebar-avatar {
   width:100%; aspect-ratio:1/1;
-  border-radius:16px; overflow:hidden;
-  border:2px solid var(--border);
-  box-shadow:var(--shadow-md);
+  border-radius:50%; overflow:hidden;
+  border:none;
+  /* Elegant double-ring: background gap → thin accent ring → soft drop shadow */
+  box-shadow:
+    0 0 0 3px var(--bg-sidebar),
+    0 0 0 4.5px rgba(37,99,235,0.18),
+    0 6px 24px rgba(0,0,0,0.12);
+}
+[data-theme="dark"] .sidebar-avatar {
+  box-shadow:
+    0 0 0 3px var(--bg-sidebar),
+    0 0 0 4.5px rgba(59,130,246,0.25),
+    0 6px 24px rgba(0,0,0,0.4);
 }
 .sidebar-avatar img { width:100%; height:100%; object-fit:cover; object-position:center top; }
 .sidebar-status {
@@ -545,3 +558,173 @@ button { font-family:var(--font); cursor:pointer; }
   .stat-item:last-child { border-bottom:none; }
   .site-footer { flex-direction:column; gap:6px; text-align:center; }
 }
+
+/* ── AI Tools Section ── */
+.ai-tools-section { margin-bottom: 0; }
+.ai-tools-header { margin-bottom: 16px; }
+.ai-tools-label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); }
+.ai-tools-sublabel { font-size:0.8rem; color:var(--text-secondary); margin-top:4px; }
+.ai-tools-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.ai-tool-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:18px 16px;
+  transition:all 0.2s; box-shadow:var(--shadow-sm);
+}
+.ai-tool-card:hover { border-color:var(--accent); box-shadow:var(--shadow); transform:translateY(-2px); }
+.ai-tool-icon {
+  width:36px; height:36px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:12px;
+}
+.ai-icon-claude  { background:linear-gradient(135deg,#6366F1,#8B5CF6); color:#fff; }
+.ai-icon-cursor  { background:linear-gradient(135deg,#0F172A,#334155); color:#fff; }
+.ai-icon-copilot { background:linear-gradient(135deg,#2563EB,#06B6D4); color:#fff; }
+.ai-icon-prompt  { background:linear-gradient(135deg,#22C55E,#06B6D4); color:#fff; }
+.ai-tool-name { font-size:0.85rem; font-weight:700; color:var(--text-primary); margin-bottom:6px; }
+.ai-tool-desc { font-size:0.75rem; color:var(--text-secondary); line-height:1.6; }
+
+/* AI tech pills */
+.pill-ai-claude  { border-color:#6366F144; color:#6366F1; background:#6366F111; }
+.pill-ai-cursor  { border-color:#33415544; color:#475569; background:#33415511; }
+.pill-ai-copilot { border-color:#2563EB44; color:#2563EB; background:#2563EB11; }.pill-ai-prompt  { border-color:#22C55E44; color:#15803D; background:#22C55E11; }
+.pill-ai-agents  { border-color:#7C3AED44; color:#7C3AED; background:#7C3AED11; }
+.pill-ai-openai  { border-color:#06B6D444; color:#0891B2; background:#06B6D411; }
+
+@media (max-width:900px) { .ai-tools-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:600px) { .ai-tools-grid { grid-template-columns:1fr; } }
+
+/* ── AI Section — Enhanced Header ── */
+.ai-tools-eyebrow {
+  font-size:0.68rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.14em; color:var(--accent); margin-bottom:6px;
+}
+.ai-tools-title {
+  font-size:1.35rem; font-weight:800; letter-spacing:-0.03em;
+  color:var(--text-primary); line-height:1.2; margin-bottom:8px;
+}
+.ai-tools-subtitle {
+  font-size:0.875rem; color:var(--text-secondary);
+  line-height:1.7; margin-bottom:22px; max-width:560px;
+}
+
+/* ── AI Tool Card — gradient top-bar on hover ── */
+.ai-tool-card { position:relative; overflow:hidden; }
+.ai-tool-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--gradient);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 0.28s cubic-bezier(0.22,1,0.36,1);
+}
+.ai-tool-card:hover::before { transform:scaleX(1); }
+.ai-tool-use {
+  font-size:0.71rem; color:var(--text-muted);
+  margin-top:8px; line-height:1.55; font-style:italic;
+}
+.ai-tool-badge {
+  display:inline-block; font-size:0.6rem; font-weight:700;
+  padding:2px 8px; border-radius:20px; margin-top:10px;
+  background:var(--accent-light); color:var(--accent);
+  text-transform:uppercase; letter-spacing:0.07em;
+}
+
+/* ── AI Terminal Card ── */
+.ai-terminal {
+  background:#0D1117;
+  border:1px solid #21262D;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  margin-top:18px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);
+  font-family:var(--mono);
+}
+.ai-terminal-bar {
+  background:#161B22; border-bottom:1px solid #21262D;
+  padding:10px 16px; display:flex; align-items:center; gap:6px;
+}
+.ai-terminal-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+.ai-terminal-dot-r { background:#FF5F57; }
+.ai-terminal-dot-y { background:#FFBD2E; }
+.ai-terminal-dot-g { background:#28CA41; }
+.ai-terminal-title { font-size:0.72rem; color:#8B949E; margin-left:8px; }
+.ai-terminal-badge {
+  margin-left:auto; font-size:0.6rem; font-weight:700;
+  padding:2px 8px; border-radius:20px;
+  background:rgba(126,231,135,0.12); color:#7EE787;
+  text-transform:uppercase; letter-spacing:0.07em; border:1px solid rgba(126,231,135,0.2);
+}
+.ai-terminal-body {
+  padding:20px 24px; font-size:0.77rem; line-height:2;
+}
+.ai-t-prompt  { color:#7EE787; }
+.ai-t-cmd     { color:#E6EDF3; }
+.ai-t-step    { color:#8B949E; }
+.ai-t-ok      { color:#7EE787; font-weight:600; }
+.ai-t-result  { color:#A5D6FF; padding-left:4px; }
+.ai-t-accent  { color:#D2A8FF; padding-left:4px; }
+.ai-t-blank   { display:block; height:0.5em; }
+.ai-t-cursor  {
+  display:inline-block; width:8px; height:1.1em;
+  background:#7EE787; vertical-align:text-bottom;
+  animation:blink 1s step-end infinite; margin-left:2px;
+  border-radius:1px;
+}
+
+/* ── Prompt Engineering Showcase ── */
+.prompt-showcase {
+  background:var(--bg-code); border:1px solid var(--border);
+  border-radius:var(--radius-lg); overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.prompt-showcase-bar {
+  display:flex; align-items:center; gap:6px;
+  padding:10px 16px; background:var(--bg-card);
+  border-bottom:1px solid var(--border);
+}
+.prompt-showcase-title { font-size:0.72rem; color:var(--text-muted); font-family:var(--mono); margin-left:8px; }
+.prompt-showcase-tag {
+  margin-left:auto; font-size:0.6rem; font-weight:700;
+  padding:2px 8px; border-radius:20px;
+  background:var(--accent-light); color:var(--accent);
+  text-transform:uppercase; letter-spacing:0.07em;
+}
+.prompt-showcase-body {
+  padding:20px 24px; font-family:var(--mono);
+  font-size:0.77rem; line-height:1.9;
+}
+.ps-role    { color:#7C3AED; }
+.ps-label   { color:var(--text-muted); font-style:italic; }
+.ps-ctx     { color:var(--text-secondary); }
+.ps-task    { color:#22C55E; }
+.ps-format  { color:#F97316; }
+.ps-cot     { color:#06B6D4; }
+.ps-comment { color:var(--text-muted); }
+
+/* ── AI Workflow Row ── */
+.ai-workflow-row {
+  display:grid; grid-template-columns:1fr auto 1fr auto 1fr;
+  align-items:center; gap:8px;
+  margin:18px 0 0; padding:16px 20px;
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--radius-lg); box-shadow:var(--shadow-sm);
+}
+.ai-workflow-step { text-align:center; }
+.ai-workflow-step-icon {
+  width:36px; height:36px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 6px; font-size:1rem;
+}
+.ai-workflow-step-icon-blue   { background:rgba(37,99,235,0.1); }
+.ai-workflow-step-icon-purple { background:rgba(124,58,237,0.1); }
+.ai-workflow-step-icon-green  { background:rgba(34,197,94,0.1); }
+.ai-workflow-step-name { font-size:0.75rem; font-weight:700; color:var(--text-primary); }
+.ai-workflow-step-desc { font-size:0.67rem; color:var(--text-muted); margin-top:2px; line-height:1.4; }
+.ai-workflow-arrow { color:var(--text-muted); font-size:1.1rem; flex-shrink:0; }
+
+@media (max-width:700px) {
+  .ai-workflow-row { grid-template-columns:1fr; }
+  .ai-workflow-arrow { display:none; }
+  .ai-terminal-body { font-size:0.72rem; padding:14px 16px; }
+}
+
+/* ── Sidebar dark mode ghost button fix ── */
+[data-theme="dark"] .sidebar-cta-ghost { border-color:var(--accent); color:var(--accent-text); }
