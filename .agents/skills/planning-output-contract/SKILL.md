@@ -1,117 +1,279 @@
----
+@'
+
+\---
+
 name: planning-output-contract
-description: >
-  Required output format for every implementation plan. Use this skill
-  to ensure plans are complete, unambiguous, and agent-executable.
----
 
-# Planning Output Contract
+description: Required output format for implementation plans. Use when a planner agent produces a plan, roadmap, architecture plan, refactor plan, or PR breakdown.
 
-Every plan produced by architecture-planner must include all sections below.
-Scale depth to complexity — a simple fix gets short sections; a major feature
-gets detailed ones. Never omit a section; write "N/A — [reason]" if it does not apply.
+when\_to\_use: Use whenever the output must become a safe, reviewable implementation plan before coding starts.
 
----
+\---
 
-## Required sections
 
-### 1. Goal
-One sentence. What does this plan achieve?
 
-### 2. Mode
-State which pipeline mode applies:
-- **Portfolio Site Mode** — static HTML/CSS/JS, no framework
-- **Full-Stack App Template Mode** — Next.js / Node / Prisma / PostgreSQL
+\# Planning Output Contract
 
-### 3. Approach Selected
-Which of the 2-3 options was chosen and why. Name the alternatives considered.
 
-### 4. Scope — In
-Explicit bulleted list of what this plan changes.
 
-### 5. Scope — Out
-Explicit bulleted list of what this plan does NOT change.
+Every plan must use the following structure.
 
-### 6. Assumptions
-List every assumption made. Mark each as:
-- **Confirmed** — verified from repo files or tool output
-- **Assumed** — not verified, stated as working assumption
-- **Blocker** — cannot proceed until owner confirms
 
-### 7. Implementation Steps
-Ordered list. Each step must include:
-- Step number and title
-- Which agent executes it
-- Input required (which file or previous step output)
-- Exact task description
-- Validation: how to confirm the step succeeded
 
-### 8. File Changes
-Table of every file this plan touches:
+\## 1. Planning Summary
 
-| File | Action | Reason |
-|------|--------|--------|
-| path/to/file.ext | Create / Modify / Delete | Why |
 
-### 9. API Contract Changes
-If applicable — list every new or changed endpoint:
-- Method + path
-- Request shape
-- Response shape
-- Breaking change? Yes/No
 
-Write "N/A" if no API changes.
+Provide a short summary of what should be done and why.
 
-### 10. Database Changes
-If applicable — list every migration:
-- Table / column affected
-- Migration type (additive / destructive / rename)
-- Safe to run on live data? Yes/No + reason
 
-Write "N/A" if no DB changes.
 
-### 11. Validation Plan
-End-to-end checklist to verify the complete feature works:
-- [ ] Each acceptance criterion from task breakdown is met
-- [ ] Tests pass (unit, integration, E2E as applicable)
-- [ ] No regressions in existing tests
-- [ ] Manual smoke-check steps
+\## 2. Evidence Used
 
-### 12. Risks and Mitigations
 
-| Risk | Likelihood | Impact | Mitigation |
-|------|-----------|--------|------------|
 
-### 13. Rollback Procedure
-Step-by-step: how to safely undo this change if it causes problems in production.
+List the concrete evidence used:
 
-### 14. Architecture Decision Records
-One ADR per significant decision. Follow the adr-generator skill format.
-Write "N/A" if no significant architectural decisions were made.
 
-### 15. Recommended Agent Route
-Ordered list of which agents should run next:
 
-```
-1. schema-designer    (if DB changes)
-2. backend-builder    (if backend changes)
-3. frontend-builder   (if frontend changes)
-4. test-writer
-5. e2e-tester
-6. security-agent
-7. pr-reviewer
-8. devops-agent       (if CI/CD changes)
-9. docs-agent
-```
+\- Audit report path
 
----
+\- Files inspected
 
-## Quality gate
+\- Config files inspected
 
-Before delivering the plan, check:
+\- Tests inspected
 
-- [ ] All 15 sections present (or marked N/A with reason)
-- [ ] No step requires unverified information
-- [ ] Every step has a named owner agent
-- [ ] Every step has a validation method
-- [ ] Blockers are clearly marked and require owner input before proceeding
+\- Relevant commands or repository signals
+
+
+
+Do not claim evidence that was not inspected.
+
+
+
+\## 3. Confirmed Facts
+
+
+
+List only things confirmed from repository evidence.
+
+
+
+\## 4. Assumptions
+
+
+
+List assumptions separately.
+
+
+
+Each assumption must include how to verify it.
+
+
+
+\## 5. Scope
+
+
+
+Define what is included.
+
+
+
+\## 6. Out of Scope
+
+
+
+Define what must not be touched in this plan.
+
+
+
+\## 7. Recommended Branch Name
+
+
+
+Use one branch name only.
+
+
+
+Naming examples:
+
+
+
+\- chore/add-planner-agent
+
+\- fix/validation-error-handling
+
+\- refactor/extract-cv-generation-services
+
+\- test/add-upload-validation-coverage
+
+\- feat/add-audit-gate
+
+
+
+\## 8. Recommended PR Title
+
+
+
+Use one PR title only.
+
+
+
+Format examples:
+
+
+
+\- chore: add architecture planner agent
+
+\- fix: handle invalid generated scenario payloads
+
+\- refactor: extract CV validation services
+
+\- test: add upload validation coverage
+
+
+
+\## 9. Implementation Plan
+
+
+
+Break the work into small ordered steps.
+
+
+
+Each step must include:
+
+
+
+\- Goal
+
+\- Files likely to change
+
+\- Exact change description
+
+\- Reason
+
+\- Risk
+
+\- Validation required
+
+
+
+\## 10. Test Plan
+
+
+
+Include:
+
+
+
+\- Unit tests
+
+\- Integration tests
+
+\- Manual checks
+
+\- Regression checks
+
+\- Edge cases
+
+
+
+If tests do not exist, propose where they should be added.
+
+
+
+\## 11. Validation Commands
+
+
+
+List concrete commands to run.
+
+
+
+Examples:
+
+
+
+\- npm test
+
+\- pnpm test
+
+\- pnpm lint
+
+\- pnpm build
+
+\- dotnet test
+
+\- dotnet build
+
+\- git status
+
+\- git diff --check
+
+
+
+Only include commands that make sense for the repository.
+
+
+
+\## 12. Risk Review
+
+
+
+Cover:
+
+
+
+\- Security risk
+
+\- Data/privacy risk
+
+\- Production behavior risk
+
+\- Breaking-change risk
+
+\- Performance risk
+
+\- Maintainability risk
+
+
+
+\## 13. Rollback Plan
+
+
+
+Explain how to safely revert if the change fails.
+
+
+
+\## 14. Open Questions
+
+
+
+Ask only questions that block safe implementation.
+
+
+
+Do not ask questions that can be answered by reading the repo.
+
+
+
+\## 15. Go / No-Go Recommendation
+
+
+
+End with one of:
+
+
+
+\- GO: safe to proceed to implementation
+
+\- GO WITH CAUTION: proceed only after resolving listed risks
+
+\- NO-GO: do not implement yet
+
+
+
+Explain the reason.

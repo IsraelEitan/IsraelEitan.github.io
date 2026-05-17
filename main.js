@@ -48,30 +48,56 @@
     const btn = document.getElementById('mobile-menu-btn');
     const nav = document.getElementById('mobile-nav');
     if (!btn || !nav) return;
+    function setMenuOpen(open) {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
     btn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', nav.classList.contains('open'));
+      setMenuOpen(!nav.classList.contains('open'));
     });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
     document.addEventListener('click', e => {
-      if (!btn.contains(e.target) && !nav.contains(e.target)) nav.classList.remove('open');
+      if (!btn.contains(e.target) && !nav.contains(e.target)) setMenuOpen(false);
     });
   }
 
   /* ── Animated Counter ── */
+  function parseCounterTarget(target) {
+    const raw = target.trim();
+    const numeric = parseFloat(raw.replace(/[^0-9.]/g, ''));
+    const multiplier = raw.toUpperCase().includes('M') ? 1000000 : raw.toUpperCase().includes('K') ? 1000 : 1;
+    const compactSuffix = raw.match(/[KM]\+?$/i)?.[0] || '';
+    const suffix = compactSuffix || raw.replace(/[0-9.,KM]/gi, '');
+    return {
+      displayTarget: Number.isFinite(numeric) ? numeric : 0,
+      animationTarget: Number.isFinite(numeric) ? numeric * multiplier : 0,
+      suffix
+    };
+  }
+
+  function formatCounterValue(value, parsed) {
+    if (parsed.suffix.toUpperCase().startsWith('M')) {
+      const compact = value >= parsed.animationTarget ? parsed.displayTarget : value / 1000000;
+      return (compact >= 10 || value >= parsed.animationTarget ? Math.round(compact) : compact.toFixed(1)) + parsed.suffix;
+    }
+    if (parsed.suffix.toUpperCase().startsWith('K')) {
+      const compact = value >= parsed.animationTarget ? parsed.displayTarget : value / 1000;
+      return (compact >= 10 || value >= parsed.animationTarget ? Math.round(compact) : compact.toFixed(1)) + parsed.suffix;
+    }
+    return (Number.isInteger(parsed.displayTarget) ? Math.round(value) : value.toFixed(1)) + parsed.suffix;
+  }
+
   function animateCounter(el) {
-    const target = el.getAttribute('data-target');
-    const numTarget = parseFloat(target.replace(/[^0-9.]/g, ''));
-    const suffix = target.replace(/[0-9.]/g, '');
+    const parsed = parseCounterTarget(el.getAttribute('data-target') || '0');
     const duration = 1800;
     const step = 16;
     const steps = duration / step;
-    const increment = numTarget / steps;
+    const increment = parsed.animationTarget / steps;
     let current = 0;
     const timer = setInterval(() => {
-      current = Math.min(current + increment, numTarget);
-      el.textContent = (Number.isInteger(numTarget) ? Math.round(current) : current.toFixed(1)) + suffix;
-      if (current >= numTarget) clearInterval(timer);
+      current = Math.min(current + increment, parsed.animationTarget);
+      el.textContent = formatCounterValue(current, parsed);
+      if (current >= parsed.animationTarget) clearInterval(timer);
     }, step);
   }
 

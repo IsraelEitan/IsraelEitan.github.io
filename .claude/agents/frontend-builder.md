@@ -11,6 +11,7 @@ permissionMode: default
 maxTurns: 80
 skills:
   - verification-guard
+  - frontend-dev-guidelines
   - frontend-patterns
   - react-best-practices
   - frontend-design

@@ -7,7 +7,7 @@ description: >
   context, tokens, and screenshots. Produces a design spec that frontend-
   builder consumes. If no Figma file exists, produces a wireframe description
   with component hierarchy.
-tools: Read, Glob, WebSearch, mcp__figma__get_design_context, mcp__figma__get_screenshot, mcp__figma__get_variable_defs, mcp__figma__get_metadata, mcp__figma__search_design_system
+tools: Read, Glob, WebSearch
 model: sonnet
 maxTurns: 30
 skills:
@@ -77,4 +77,8 @@ Sections:
 2. Component hierarchy per screen (atomic → page)
 3. All states per component (empty, loading, error, success)
 4. Design tokens (extracted from Figma or defined)
-5. Responsive strategy (
+5. Responsive strategy (mobile-first breakpoints)
+6. Accessibility checklist per screen
+7. Figma references (if used)
+
+End by confirming the design spec is approved and ready for frontend-builder.
