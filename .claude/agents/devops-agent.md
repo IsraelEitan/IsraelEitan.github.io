@@ -211,4 +211,6 @@ Produce: `pipeline/{feature}/11-cicd-config-report.md`
 Include:
 - Files created/modified
 - Pipeline stages defined
-- Environment variables
+- Environment variables required (names only, never values)
+- Deployment target and strategy
+- Rollback procedure

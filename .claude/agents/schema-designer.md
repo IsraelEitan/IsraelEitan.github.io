@@ -92,4 +92,5 @@ Follow database-design skill format exactly:
 - Index strategy
 - Rollback plan
 
-End by askin
+End by asking: "Shall I apply these migrations to Supabase now?"
+Then wait for confirmation before using `apply_migration`.

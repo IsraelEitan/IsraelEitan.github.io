@@ -80,7 +80,7 @@ Examples:
 
 \- test/add-profile-utils-coverage
 
-\- chore/add-claude-planner-agent
+\- chore/add-Codex-planner-agent
 
 
 
@@ -153,5 +153,3 @@ Do not recommend merging unless:
 \- No unrelated files changed
 
 \- The user explicitly approves the merge
-
-

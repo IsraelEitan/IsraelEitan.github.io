@@ -99,4 +99,5 @@ This file contains:
 2. Complete PR description (ready to paste into GitHub)
 3. Final verdict with clear reasoning
 
-End by telling the user the ve
+End by telling the user the verdict and exactly what (if anything) must be
+fixed before this PR can be merged.
