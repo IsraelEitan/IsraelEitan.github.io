@@ -1,155 +1,88 @@
-@'
-
-\---
-
+---
 name: ai-safe-change-management
-
-description: Safe AI software change-management rules. Use when planning or executing AI-assisted repository changes, especially branch, PR, testing, and review workflows.
-
-when\_to\_use: Use before coding, refactoring, test generation, dependency changes, PR creation, or any repository modification.
-
-\---
-
-
-
-\# AI Safe Change Management
-
-
-
-Use these rules for AI-assisted development workflows.
-
-
-
-\## Non-negotiable rules
-
-
-
-1\. Never work directly on main.
-
-2\. Always use a dedicated branch.
-
-3\. Keep branches small and purpose-specific.
-
-4\. Do not mix unrelated changes in the same branch.
-
-5\. Do not modify secrets, credentials, production endpoints, certificates, or deployment settings unless explicitly requested and reviewed.
-
-6\. Do not upgrade dependencies unless the task requires it.
-
-7\. Do not delete tests to make validation pass.
-
-8\. Do not weaken linting, type checks, build checks, or security checks.
-
-9\. Do not introduce fake production behavior.
-
-10\. Use mocks/fakes only in tests and label them as test doubles.
-
-
-
-\## Branch naming
-
-
-
-Use:
-
-
-
-\- feat/<short-feature>
-
-\- fix/<short-bug>
-
-\- refactor/<short-area>
-
-\- test/<short-area>
-
-\- chore/<short-task>
-
-\- docs/<short-topic>
-
-
-
-Examples:
-
-
-
-\- feat/add-cv-audit-gate
-
-\- fix/scenario-generation-validation
-
-\- refactor/extract-upload-validation
-
-\- test/add-profile-utils-coverage
-
-\- chore/add-Codex-planner-agent
-
-
-
-\## PR expectations
-
-
-
-Every PR should include:
-
-
-
-\- Problem
-
-\- Solution
-
-\- Files changed
-
-\- Test coverage
-
-\- Validation commands
-
-\- Risks
-
-\- Rollback plan
-
-\- Screenshots or logs when relevant
-
-
-
-\## Planning before coding
-
-
-
-Before implementation, produce:
-
-
-
-\- One recommended branch name
-
-\- One recommended PR title
-
-\- Ordered implementation steps
-
-\- Test plan
-
-\- Validation commands
-
-\- Risk review
-
-\- Go/no-go recommendation
-
-
-
-\## Merge policy
-
-
-
-Do not recommend merging unless:
-
-
-
-\- The PR is focused
-
-\- Tests pass
-
-\- Build passes
-
-\- Risks are understood
-
-\- No unrelated files changed
-
-\- The user explicitly approves the merge
+description: >
+  Safe AI software change-management rules. Use when planning or executing
+  AI-assisted repository changes, especially branch, PR, testing, and review workflows.
+when_to_use: >
+  Use before coding, refactoring, test generation, dependency changes,
+  PR creation, or any repository modification.
+---
+
+# AI Safe Change Management
+
+## Non-negotiable rules
+
+1. **Never work on `main` or `master`** — always use a feature branch.
+2. **Never commit secrets** — no API keys, tokens, passwords, or connection strings in code.
+3. **Never force push** — do not rewrite shared branch history.
+4. **Never merge without review** — all merges require a PR and at least the pr-reviewer agent.
+5. **Never invent facts** — if something is not verified from files or tools, say it is unknown.
+6. **Never run destructive commands** — no `DROP TABLE`, `rm -rf`, `git reset --hard` without explicit user confirmation.
+7. **Never bypass validation** — do not skip tests, lint, or type checks to make a build pass.
+
+## Branch naming
+
+```
+feat/{feature-slug}      # new features
+fix/{bug-slug}           # bug fixes
+refactor/{area}          # refactoring
+test/{area}              # test additions
+chore/{task}             # maintenance
+docs/{topic}             # documentation only
+```
+
+## Before any file edit
+
+1. `git branch --show-current` — confirm you are NOT on main/master.
+2. `git status --short` — confirm working tree is clean or expected.
+3. State the scope of what you are about to change.
+
+## Commit conventions
+
+Follow Conventional Commits:
+
+```
+feat(scope): short description
+fix(scope): short description
+refactor(scope): short description
+test(scope): short description
+chore(scope): short description
+docs(scope): short description
+```
+
+- Subject line: imperative mood, ≤72 characters, no period.
+- Body (optional): explain WHY, not what.
+- No emoji in commit messages unless the project already uses them.
+
+## What agents may do without explicit user confirmation
+
+- Read files, run grep/glob searches
+- Run read-only git commands (`git log`, `git diff`, `git status`, `git branch`)
+- Write new files on a feature branch
+- Edit files on a feature branch
+- Run tests, lint, type checks, build
+
+## What agents must NOT do without explicit user confirmation
+
+- `git add` + `git commit` — must confirm scope first
+- `git push` — must confirm branch and remote
+- Open a PR — must confirm PR title and description
+- Run database migrations
+- Delete files or branches
+- Install new packages
+- Modify `.env` files or any secrets store
+
+## PR expectations
+
+Every PR must include:
+- Clear problem statement
+- Solution summary
+- List of files changed
+- Validation performed (tests run, build status)
+- Security/configuration notes
+- Known risks or manual follow-up steps
+
+## Merge policy
+
+- Do not merge your own PR without a second review (human or pr-reviewer agent).
+- All CI checks must pa

@@ -11,7 +11,6 @@ permissionMode: default
 maxTurns: 80
 skills:
   - verification-guard
-  - frontend-dev-guidelines
   - frontend-patterns
   - react-best-practices
   - frontend-design
@@ -79,7 +78,4 @@ Include:
 - Components created/modified
 - Pages created/modified
 - API calls implemented
-- Accessibility checklist
-- Build result
-- Suggested commit message
-- PR contribution (appended to backend PR or separate)
+- Accessibilit
