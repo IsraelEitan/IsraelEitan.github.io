@@ -414,6 +414,84 @@ button { font-family:var(--font); cursor:pointer; }
   margin-bottom:24px; padding-bottom:10px;
   border-bottom:2px solid var(--accent-light);
 }
+.page-title {
+  font-size:2rem;
+  font-weight:900;
+  letter-spacing:-0.03em;
+  color:var(--text-primary);
+  margin-bottom:18px;
+}
+.resume-topbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  padding:14px 16px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  margin-bottom:36px;
+}
+.resume-nav {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.resume-nav a {
+  display:inline-flex;
+  align-items:center;
+  min-height:34px;
+  padding:7px 12px;
+  border-radius:var(--radius);
+  color:var(--text-secondary);
+  font-size:0.82rem;
+  font-weight:600;
+}
+.resume-nav a:hover {
+  background:var(--accent-light);
+  color:var(--accent);
+}
+.resume-section {
+  margin-bottom:44px;
+}
+.edu-item {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  padding:20px 22px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+}
+.edu-degree {
+  font-size:0.98rem;
+  font-weight:800;
+  color:var(--text-primary);
+  margin-bottom:4px;
+}
+.edu-school {
+  font-size:0.86rem;
+  font-weight:600;
+  color:var(--accent);
+  margin-bottom:6px;
+}
+.edu-detail {
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+.edu-date {
+  flex-shrink:0;
+  color:var(--text-muted);
+  font-size:0.75rem;
+  font-weight:700;
+  white-space:nowrap;
+}
 .skills-cats { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .skill-cat { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; transition:border-color 0.15s; }
 .skill-cat:hover { border-color:var(--accent); }
@@ -501,10 +579,72 @@ button { font-family:var(--font); cursor:pointer; }
   .impact-grid { grid-template-columns:1fr 1fr; }
 }
 @media (max-width:600px) {
+  html,
+  body {
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .top-nav {
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) 34px 34px;
+    padding:0 12px;
+    gap:8px;
+  }
+  .nav-brand {
+    min-width:0;
+    margin-right:0;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .theme-toggle,
+  .mobile-menu-btn {
+    width:34px;
+    height:34px;
+    margin-left:0;
+    flex-shrink:0;
+  }
+  .layout,
+  .sidebar,
+  .content {
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .sidebar > *,
+  .content > * {
+    min-width:0;
+    max-width:100%;
+  }
   .hero-headline { font-size:1.6rem; }
   .content { padding:28px 20px; }
   .stats-big-grid { grid-template-columns:1fr; }
   .skills-cats { grid-template-columns:1fr; }
+  .sidebar { flex-direction:column; }
+  .sidebar-avatar-wrap { width:72px; }
+  .sidebar-email,
+  .sidebar-bio {
+    overflow-wrap:anywhere;
+    max-width:min(320px, calc(100vw - 56px));
+  }
+  .hero-sub,
+  .about-text,
+  .about-section-text,
+  .project-desc {
+    max-width:min(320px, calc(100vw - 56px));
+  }
+  .resume-topbar {
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:stretch;
+    max-width:100%;
+    overflow:hidden;
+  }
+  .resume-nav { width:100%; }
+  .resume-nav a { flex:1 1 30%; justify-content:center; min-width:0; }
+  .resume-topbar > .btn { width:100%; justify-content:center; }
+  .edu-item { flex-direction:column; gap:10px; }
+  .edu-date { white-space:normal; }
 }
 
 /* ── Ghost CTA button (sidebar) ── */
@@ -553,6 +693,10 @@ button { font-family:var(--font); cursor:pointer; }
 @media (max-width:600px) {
   .projects-grid { grid-template-columns:1fr; }
   .hero-headline { font-size:1.75rem; }
+  .sidebar { flex-direction:column; }
+  .sidebar-avatar-wrap { width:72px; }
+  .sidebar-email,
+  .sidebar-bio { overflow-wrap:anywhere; }
   .stats-row { flex-direction:column; }
   .stat-item { border-right:none; border-bottom:1px solid var(--border); }
   .stat-item:last-child { border-bottom:none; }
