@@ -872,3 +872,72 @@ button { font-family:var(--font); cursor:pointer; }
 
 /* ── Sidebar dark mode ghost button fix ── */
 [data-theme="dark"] .sidebar-cta-ghost { border-color:var(--accent); color:var(--accent-text); }
+
+/* ── Stat Detail (Task 2.3) ── */
+.stat-detail {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted, #888);
+  margin-top: 4px;
+  line-height: 1.4;
+  max-width: 140px;
+  text-align: center;
+}
+
+/* ── How I Work Section (Task 2.4) ── */
+.how-i-work-section {
+  margin-top: 8px;
+}
+
+.how-i-work-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.how-i-work-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.how-i-work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.how-i-work-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.how-i-work-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.how-i-work-card-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.how-i-work-card-body {
+  font-size: 0.82rem;
+  color: var(--text-muted, var(--text-secondary));
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .how-i-work-grid {
+    grid-template-columns: 1fr;
+  }
+}
