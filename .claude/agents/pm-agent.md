@@ -66,8 +66,4 @@ If Linear is available:
 
 ## Output
 
-1. File: `pipeline/{feature-slug}/00-task-breakdown.md`
-2. Linear issues created (list URLs), or "Linear unavailable - no issues created"
-
-End by listing any Linear issues created, confirming scope is approved,
-and telling the user to invoke repo-auditor next.
+1. File: `pipeline/

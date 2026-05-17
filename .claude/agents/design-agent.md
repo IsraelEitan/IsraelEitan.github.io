@@ -77,8 +77,4 @@ Sections:
 2. Component hierarchy per screen (atomic → page)
 3. All states per component (empty, loading, error, success)
 4. Design tokens (extracted from Figma or defined)
-5. Responsive strategy (mobile-first breakpoints)
-6. Accessibility checklist per screen
-7. Figma references (if used)
-
-End by confirming the design spec is approved and ready for frontend-builder.
+5. Responsive strategy (
